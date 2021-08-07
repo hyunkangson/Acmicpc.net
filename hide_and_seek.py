@@ -18,7 +18,7 @@ def dijkstra():
 
 n, edges = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n + 1)]
-distance = [sys.maxsize] * (n + 1)
+distance = [0] + [sys.maxsize] * n
 
 for i in range(edges):
     fr, to = map(int, sys.stdin.readline().split())
@@ -26,6 +26,5 @@ for i in range(edges):
     graph[to].append((fr, 1))
 
 dijkstra()
-distance[0] = 0
 x = max(distance)
 print(distance.index(x), x, distance.count(x))
