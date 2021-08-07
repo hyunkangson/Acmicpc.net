@@ -1,9 +1,8 @@
 import heapq,sys
-inf = int(1e9)
 
 n, edges = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n + 1)]
-distance = [inf] * (n + 1)
+distance = [sys.maxsize] * (n + 1)
 
 for i in range(edges):
     fr, to = map(int, sys.stdin.readline().split())
