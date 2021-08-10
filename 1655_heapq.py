@@ -6,14 +6,14 @@ n = int(sys.stdin.readline())
 for _ in range(n):
     num = int(sys.stdin.readline())
     if len(minq) == len(maxq):
-        heapq.heappush(minq, [-num,num])
+        heapq.heappush(maxq, [-num,num])
     else:
-        heapq.heappush(maxq, [num,num])
+        heapq.heappush(minq, [num,num])
 
-    if  maxq and maxq[0][1] < minq[0][1]:
+    if  minq and minq[0][1] < maxq[0][1]:
         tmp = heapq.heappop(minq)[1]
         tmp2 = heapq.heappop(maxq)[1]
-        heapq.heappush(minq, [-tmp2, tmp2])
-        heapq.heappush(maxq, [tmp, tmp])
+        heapq.heappush(maxq, [-tmp, tmp])
+        heapq.heappush(minq, [tmp2, tmp2])
 
-    print(minq[0][1])
+    print(maxq[0][1])
