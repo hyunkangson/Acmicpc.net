@@ -10,7 +10,7 @@ for _ in range(n):
     else:
         heapq.heappush(minq, num)
 
-    if  minq and minq[0] < maxq[0]:
+    if  minq and minq[0] < -maxq[0]:
         tmp = heapq.heappop(minq)
         tmp2 = -heapq.heappop(maxq)
         heapq.heappush(maxq, -tmp)
