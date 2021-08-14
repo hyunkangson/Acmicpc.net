@@ -23,7 +23,6 @@ for i in range(n):
         if graph[i][j] == "0" and not visit[i][j]:
             visit[i][j] = 1
             ans += 1
-            cnt = 1
             dfs(i,j)
 
 print(ans)
