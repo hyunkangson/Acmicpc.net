@@ -10,9 +10,8 @@ def search(i):
     while st < ed:
         val = nums[st] + nums[ed]
         if  val == target:
-            nums.insert(i, target)
             cnt += 1
-            return
+            break
         elif val < target:
             ed -=1
         else:
