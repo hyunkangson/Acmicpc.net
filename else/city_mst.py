@@ -38,4 +38,4 @@ while q:
     if cnt == n - 1:
         break
 
-print(sum(ans) - max(ans))
+print(sum(ans) - ans[-1])
