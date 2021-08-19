@@ -39,7 +39,7 @@ def dijkstra(st, end):
         if distance[node] >= dist:
             merged = make(node)
             for move in merged:
-                if 0 <= node + move <= 9999 and eratos[node + move]:
+                if eratos[node + move]:
                     cost = dist + 1
                     if cost < distance[node + move]:
                         distance[node + move] = cost
