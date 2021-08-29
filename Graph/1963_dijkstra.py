@@ -19,16 +19,6 @@ def make(node):
     return merged
 
 
-def eratos_sieve():
-    eratos = [1] * 10001
-    for i in range(2, 10001):
-        if eratos[i]:
-            for j in range(2 * i, 10001, i):
-                eratos[j] = 0
-
-    return eratos
-
-
 def dijkstra(st, end):
     queue = []
     heapq.heappush(queue, (0, st))
@@ -44,6 +34,16 @@ def dijkstra(st, end):
                     if cost < distance[node + move]:
                         distance[node + move] = cost
                         heapq.heappush(queue, (cost, node + move))
+
+
+def eratos_sieve():
+    eratos = [1] * 10001
+    for i in range(2, 10001):
+        if eratos[i]:
+            for j in range(2 * i, 10001, i):
+                eratos[j] = 0
+
+    return eratos
 
 
 n = int(sys.stdin.readline())
