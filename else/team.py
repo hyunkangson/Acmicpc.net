@@ -17,7 +17,7 @@ def find(x):
 
 n,m = map(int, sys.stdin.readline().split())
 parent = [int(i) for i in range(n+1)]
-
+print("\n")
 for _ in range(m):
     dec, a, b = map(int, sys.stdin.readline().split())
     if dec:
