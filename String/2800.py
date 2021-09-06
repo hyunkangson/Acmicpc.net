@@ -1,22 +1,22 @@
 from itertools import combinations
 import sys,copy
 
-problem = list(sys.stdin.readline().rstrip())
-p = []
+txt = list(sys.stdin.readline().rstrip())
+n = []
 idx = []
 
-for i,j in enumerate(problem):
+for i,j in enumerate(txt):
     if j == '(':
-        problem[i] = ""
-        p += [i]
+        txt[i] = ""
+        n += [i]
     if j == ')':
-        problem[i] = ""
-        idx += [[p.pop(),i]]
+        txt[i] = ""
+        idx += [[n.pop(),i]]
 
 ans = set()
 for i in range(len(idx)):
     for j in combinations(idx,i):
-        tmp = copy.deepcopy(problem)
+        tmp = copy.deepcopy(txt)
         for k,l in j:
             tmp[k] = "("
             tmp[l] = ")"
