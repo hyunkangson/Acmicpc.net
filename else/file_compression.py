@@ -15,6 +15,7 @@ def solution(files):
             else:
                 break
         renamed.append([re,int(tmp),cnt,f])
+
     r = sorted(renamed, key=lambda x: (x[0],x[1],x[2]))
     ans = []
     for x in r:
