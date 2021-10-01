@@ -5,13 +5,11 @@ def solution(distance, rocks, n):
     rocks.sort()
 
     while st <= ed:
-
         mid = (st+ed)//2
-        print(answer, st, mid, ed)
         cnt = 0
         r = 0
+
         for rock in rocks:
-            print(rock,cnt)
             if rock - r < mid:
                 cnt += 1
             else:
@@ -21,7 +19,6 @@ def solution(distance, rocks, n):
 
         if cnt > n:
             ed = mid - 1
-
         else:
             answer = mid
             st = mid + 1
