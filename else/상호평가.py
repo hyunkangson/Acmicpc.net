@@ -33,5 +33,3 @@ def solution(scores):
             answer += chk((sum(data[i][:])+tmp)/s)
 
     return answer
-
-print(solution([[70,49,90],[68,50,38],[73,31,100]]))

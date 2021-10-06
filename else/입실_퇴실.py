@@ -3,6 +3,7 @@ def solution(enter, leave):
     cur = []
 
     while leave:
+        print(leave,cur, answer)
         if leave[0] in cur:
             tmp = leave.pop(0)
             cur.remove(tmp)
