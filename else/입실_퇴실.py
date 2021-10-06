@@ -14,6 +14,5 @@ def solution(enter, leave):
 
     return answer[1:]
 
-    
 
-print(solution(	[1, 4, 2, 3], [2, 1, 3, 4]))
+print(solution([1, 4, 2, 3], [2, 1, 3, 4]))
