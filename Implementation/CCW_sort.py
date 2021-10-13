@@ -58,3 +58,13 @@ coord = sorted([list(map(int, sys.stdin.readline().split())) for _ in range(n)],
 p = coord[0]
 quick(1,n-1)
 print(coord)
+
+"""
+input
+5
+2 0
+1 2
+4 0
+5 2
+3 4
+"""
