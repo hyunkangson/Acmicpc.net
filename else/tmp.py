@@ -1,38 +1,27 @@
-import sys
-from collections import deque
+import itertools
 
-for _ in range(int(stdin.readline())):
-    n = int(sys.stdin.readline())
-    nums = list(map(int, sys.stdin.readline().split()))
-    rank = [[0] * (n + 1) for _ in range(n + 1)]
-    in_degree = [0] * (n+1)
+def solution(n, weak, dist):
+    l = len(weak)
+    for i in range(l):
+        weak.append(weak[i]+n)
 
-    for i in range(n):
-        for j in range(i+1, n):
-            rank[nums[i]][nums[j]] = 1
+    ans = len(dist)+1
 
-    m = int(stdin.readline())
-    for _ in range(m):
-        a, b = map(int, sys.stdin.readline().split())
-        rank[a][b], rank[b][a] = rank[b][a], rank[a][b]
+    for start in range(l):
+        for d in list(itertools.permutations(dist,len(dist))):
+            cnt = 1
+            pos = weak[start]+d[cnt-1]
+            for i in range(start, start+l):
+                if pos < weak[i] :
+                    cnt += 1
+                    if cnt > len(dist):
+                        break
+                    pos = weak[i]+d[cnt-1]
 
-    ans = []
-    q = deque()
-    for i in range(1, n+1):
-        in_degree[i] = rank[i].count(1)
-        if in_degree[i] == 0:
-            q.append(i)
+            ans = min(cnt,ans)
 
-    while q:
-        cur = q.popleft()
-        ans.append(cur)
-        for i in range(1, n+1):
-            if rank[i][cur]:
-                in_degree[i] -= 1
-                if in_degree[i] == 0:
-                    q.append(i)
+    if ans > len(dist):
+        return -1
+    return ans
 
-    if len(ans) == n:
-        print(*ans[::-1])
-    else:
-        print("IMPOSSIBLE")
+print(solution(12,	[1, 5, 6, 10],	[1, 2, 3, 4]))
