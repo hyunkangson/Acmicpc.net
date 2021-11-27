@@ -23,7 +23,7 @@ def check(n):
 n = int(sys.stdin.readline())
 
 cnt = 0
-for i in range(1,1000):
+for i in range(1, 1000):
     cnt += check(i)
     if cnt == n:
         print(i)
