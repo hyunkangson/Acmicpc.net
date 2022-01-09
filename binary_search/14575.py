@@ -22,14 +22,12 @@ cnt = [0,0]
 for _ in range(n):
     a, b = map(int, sys.stdin.readline().split())
     info.append([a, b])
-    cnt[0] += a
-    cnt[1] += b
-    r = max(r, b)
-    l = min(l, a)
+    cnt[0] += a; cnt[1] += b
+    r = max(r, b); l = min(l, a)
 
 if cnt[0] > t or cnt[1] < t:
     print(-1)
-    exit()
+    exit(0)
 
 while l <= r:
     mid = (l + r) // 2
