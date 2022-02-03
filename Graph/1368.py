@@ -1,4 +1,6 @@
 import sys
+from collections import defaultdict
+
 
 def find(n):
     if p[n] == n:
@@ -17,13 +19,16 @@ def union(x, y):
 
 n = int(sys.stdin.readline())
 wi = [int(sys.stdin.readline()) for _ in range(n)]
+check = defaultdict(int)
 p = [int(i) for i in range(n + 1)]
 edges = []
 
 for i in range(n):
     weight = list(map(int, sys.stdin.readline().split()))
     for j in range(n):
-        if weight[j]:
+        if weight[j] and not check[(i, j)]:
+            check[(i, j)] = 1
+            check[(j, i)] = 1
             edges.append([i, j, weight[j]])
 for i in range(n):
     edges.append([i, n, wi[i]])
